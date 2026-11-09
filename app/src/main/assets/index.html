@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17324d">
+  <meta name="description" content="Day-wise exam study planner for November–December 2026">
+  <title>Exam Planner 2026</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">YOUR PERSONAL STUDY COMPANION</div>
+      <h1>Exam Planner <span>2026</span></h1>
+      <p>One day at a time. Your pace, your plan.</p>
+    </div>
+    <button id="installBtn" class="install-btn" hidden>＋ Install</button>
+  </header>
+
+  <main>
+    <section class="hero-card">
+      <div class="hero-top">
+        <div>
+          <div class="eyebrow light">YOUR PREPARATION WINDOW</div>
+          <h2>10 Nov – 2 Dec</h2>
+          <p>Day-wise targets · No fixed wake-up time</p>
+        </div>
+        <div class="hero-icon">📚</div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Overall task completion</span><strong id="overallText">0%</strong></div>
+        <div class="progress-track"><div id="overallBar" class="progress-fill"></div></div>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="App sections">
+      <button class="tab active" data-tab="today">Daily plan</button>
+      <button class="tab" data-tab="exams">Exam dates</button>
+      <button class="tab" data-tab="subjects">Subjects</button>
+    </nav>
+
+    <section id="todayPanel" class="panel">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">YOUR DAILY TARGETS</div>
+          <h2>Study day</h2>
+        </div>
+        <div class="date-controls">
+          <button id="prevDay" class="round-btn" aria-label="Previous day">‹</button>
+          <button id="nextDay" class="round-btn" aria-label="Next day">›</button>
+        </div>
+      </div>
+      <div class="day-date" id="dayDate"></div>
+      <div class="day-summary" id="daySummary"></div>
+      <div class="day-progress">
+        <div class="progress-label"><span>Today's progress</span><strong id="dayProgressText">0/4 done</strong></div>
+        <div class="progress-track"><div id="dayProgressBar" class="progress-fill"></div></div>
+      </div>
+      <div id="taskList" class="task-list"></div>
+      <div class="daily-note">
+        <strong>Small reminder</strong>
+        <p>Finish the four sessions in any order. Each is roughly 1.5–2 focused hours. Take breaks and adjust to your energy.</p>
+      </div>
+      <button id="resetDay" class="text-btn">Reset this day's checkmarks</button>
+    </section>
+
+    <section id="examsPanel" class="panel" hidden>
+      <div class="section-head"><div><div class="eyebrow">MARK THESE DATES</div><h2>Your exam schedule</h2></div></div>
+      <div class="notice">Only the subjects you confirmed are included. Other papers from the timetable are excluded.</div>
+      <div id="examList" class="exam-list"></div>
+    </section>
+
+    <section id="subjectsPanel" class="panel" hidden>
+      <div class="section-head"><div><div class="eyebrow">YOUR SUBJECTS</div><h2>Preparation priorities</h2></div></div>
+      <div class="priority-card"><span class="priority-dot red"></span><div><strong>Semester IV · Backlogs</strong><p>Signals & Systems · Control Systems · Object-Oriented Programming</p></div><b>High</b></div>
+      <div class="priority-card"><span class="priority-dot red"></span><div><strong>Semester III · Backlogs</strong><p>Electronics Circuits · Engineering Mathematics III (M3)</p></div><b>High</b></div>
+      <div class="priority-card"><span class="priority-dot blue"></span><div><strong>Semester V · Current</strong><p>Microcontrollers & Applications · Cellular Network · VLSI Design · Cloud Computing</p></div><b>Steady</b></div>
+      <div class="allocation">
+        <h3>Study-time split</h3>
+        <div class="allocation-row"><span>Semester IV backlogs</span><strong>35%</strong></div><div class="alloc-track"><i style="width:35%"></i></div>
+        <div class="allocation-row"><span>Semester III backlogs</span><strong>30%</strong></div><div class="alloc-track"><i style="width:30%"></i></div>
+        <div class="allocation-row"><span>Semester V subjects</span><strong>35%</strong></div><div class="alloc-track"><i style="width:35%"></i></div>
+      </div>
+      <div class="daily-note"><strong>Study tips</strong><p><b>M3, Signals & Control:</b> solve problems and keep a formula/error sheet.<br><b>Electronics Circuits:</b> practise diagrams, derivations and numericals.<br><b>OOP:</b> write programs and trace outputs.<br><b>Microcontrollers:</b> revise architecture, interfacing and programs.<br><b>Cellular, VLSI & Cloud:</b> prepare definitions, diagrams, comparisons and 5–10 mark answers.</p></div>
+    </section>
+
+    <footer>
+      <p>Your progress is saved on this device.</p>
+      <button id="clearAll" class="text-btn danger-text">Clear all saved progress</button>
+      <p class="tiny">Unit numbers are planning placeholders. Match topics to your official syllabus.</p>
+    </footer>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
